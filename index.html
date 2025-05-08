@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周家成个人简历</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 自定义动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0.9);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes flowerSway {
+            0% {
+                transform: rotate(-25deg);
+            }
+            50% {
+                transform: rotate(25deg);
+            }
+            100% {
+                transform: rotate(-25deg);
+            }
+        }
+
+        @keyframes windFlow {
+            0% {
+                transform: translateX(-200%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(200%);
+                opacity: 0;
+            }
+        }
+
+        /* 悬停动画 */
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        /* 进度条动画 */
+        .progress-bar {
+            transition: width 0.6s ease;
+        }
+
+        /* 应用动画 */
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-in-out both;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease-in-out both;
+        }
+
+        .animate-scaleUp {
+            animation: scaleUp 0.6s ease-in-out both;
+        }
+
+        /* 延迟动画 */
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        /* SVG 样式 */
+        .flower {
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            transform-origin: bottom center;
+            animation: flowerSway 3s infinite ease-in-out;
+            width: 150px;
+            height: 150px;
+        }
+
+        .wind {
+            position: absolute;
+            top: 30%;
+            animation: windFlow 5s infinite linear;
+            width: 300px;
+            height: 100px;
+        }
+
+        /* 折叠内容样式 */
+       .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+       .collapse-content.show {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        /* 折叠按钮样式 */
+       .collapse-btn {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+       .collapse-btn i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+       .collapse-btn.show i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans leading-relaxed text-gray-700 relative">
+    <!-- 导航栏 -->
+    <nav class="bg-gray-800 top-0 z-50 animate-fadeIn">
+        <div class="container mx-auto px-4 flex justify-center">
+            <a href="#personal-advantage" class="py-4 px-6 text-white hover:bg-gray-700 transition-colors">个人优势</a>
+            <a href="#education" class="py-4 px-6 text-white hover:bg-gray-700 transition-colors">教育经历</a>
+            <a href="#project-experience" class="py-4 px-6 text-white hover:bg-gray-700 transition-colors">项目经历</a>
+            <a href="#internship-experience" class="py-4 px-6 text-white hover:bg-gray-700 transition-colors">实习经历</a>
+            <a href="#club-experience" class="py-4 px-6 text-white hover:bg-gray-700 transition-colors">社团经历</a>
+            <a href="#skills-certificates" class="py-4 px-6 text-white hover:bg-gray-700 transition-colors">技能与证书</a>
+            <a href="#self-evaluation" class="py-4 px-6 text-white hover:bg-gray-700 transition-colors">自我评价</a>
+        </div>
+    </nav>
+
+    <!-- 容器 -->
+    <div class="container mx-auto bg-white shadow-md rounded-lg overflow-hidden mt-8 mb-8 animate-scaleUp relative z-10">
+        <!-- 头部 -->
+        <header class="bg-gray-800 text-white p-12 flex flex-col md:flex-row justify-between items-center animate-fadeIn">
+            <div>
+                <h1 class="text-4xl font-bold mb-2">周家成</h1>
+                <p class="text-lg text-gray-400 mb-4">男 | 22岁 | 18997180341</p>
+                <p class="text-lg text-gray-400">求职意向：前端开发、数据挖掘/分析 | 期望薪资：6-8K | 期望城市：成都</p>
+            </div>
+            <div class="mt-6 md:mt-0 md:ml-6">
+                <img src="img.jpg" alt="个人照片" class="w-40 h-40 rounded-full object-cover">
+            </div>
+        </header>
+
+        <!-- 个人优势 -->
+        <section id="personal-advantage" class="p-12 animate-slideInLeft">
+            <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-4 mb-6">个人优势</h2>
+            <ul class="list-disc pl-6 space-y-4">
+                <li class="animate-slideInLeft delay-100">前端基础扎实：系统掌握 HTML5/CSS3/JavaScript 核心语法，熟悉 Vue.js 基础框架（组件化开发、数据绑定），能独立完成静态页面搭建与简单交互功能。</li>
+                <li class="animate-slideInLeft delay-200">数据处理能力：掌握 Python 基础编程（Scrapy ,bs4,正则等），能用 Pandas 完成数据清洗，结合 Matplotlib 实现基础图表可视化。</li>
+                <li class="animate-slideInLeft delay-300">学习与协作力：在校参与足球社、吉他社团队活动，培养了快速学习能力与团队配合意识，可适应敏捷开发流程。</li>
+            </ul>
+        </section>
+
+        <!-- 教育经历 -->
+        <section id="education" class="p-12 bg-gray-50">
+            <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-4 mb-6 animate-slideInLeft">教育经历</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">常州工学院</h3>
+                <p class="text-gray-600 mb-2">本科 | 材料成型及控制工程 | 2021-2025</p>
+                <p class="text-gray-600 mb-4">主修课程：机械设计、机械制图、CAD/UG（自学计算机课程：Web 开发基础、Python 编程）</p>
+                <p class="text-gray-600 mb-2">荣誉奖项：</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>2022-2023 常工院足球新生杯亚军</li>
+                    <li>2022-2023 常工院足球团结杯冠军</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 项目经历 -->
+        <section id="project-experience" class="p-12">
+            <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-4 mb-6 animate-slideInLeft">项目经历</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md hover-scale mb-6">
+                <h3 class="collapse-btn text-xl font-bold text-gray-800 mb-2">
+                    个人博客网站（HTML/CSS/JavaScript）
+                    <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <div class="collapse-content">
+                    <p class="text-gray-600 mb-4">2024.03-2024.05 | 独立开发</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>使用原生 HTML/CSS 完成响应式布局，适配 PC/移动端，实现文章列表、评论区等基础功能。</li>
+                        <li>通过 JavaScript 实现图片轮播、表单验证等交互效果，优化页面加载速度（压缩图片资源，减少冗余代码）。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
+                <h3 class="collapse-btn text-xl font-bold text-gray-800 mb-2">
+                    简易数据可视化工具（Python+前端）
+                    <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <div class="collapse-content">
+                    <p class="text-gray-600 mb-4">2024.09-2024.12 | 课程作业</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>用 Python 爬取公开数据集（如房天下租房信息，某购物软件客户购物偏好等），通过 Pandas 清洗数据后，使用 Matplotlib 生成柱状图、折线图。</li>
+                        <li>将可视化结果嵌入 HTML 页面，尝试用 Vue.js 组件实现图表动态切换功能（基础级实践）。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实习经历 -->
+        <section id="internship-experience" class="p-12 bg-gray-50">
+            <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-4 mb-6 animate-slideInLeft">实习经历</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
+                <h3 class="collapse-btn text-xl font-bold text-gray-800 mb-2">
+                    成都居然之家家居有限公司 | 数据分析师（实习）
+                    <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <div class="collapse-content">
+                    <p class="text-gray-600 mb-4">2025.01-2025.03</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>协助收集业务数据，使用 Python 简单爬虫工具获取行业报告数据，完成基础数据整理与清洗。</li>
+                        <li>用 Excel/Tableau 制作销售数据看板，展示品类销量趋势，获部门同事协作认可。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 社团经历 -->
+        <section id="club-experience" class="p-12">
+            <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-4 mb-6 animate-slideInLeft">社团经历</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md hover-scale mb-6">
+                <h3 class="collapse-btn text-xl font-bold text-gray-800 mb-2">
+                    常工院足球社 | 社员
+                    <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <div class="collapse-content">
+                    <p class="text-gray-600 mb-4">2021.10-2022.10</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>参与日常训练与校际比赛，作为边路位置，通过战术配合练习提升团队协作意识，曾在比赛中打入关键进球。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
+                <h3 class="collapse-btn text-xl font-bold text-gray-800 mb-2">
+                    常工院吉他社 | 社员
+                    <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <div class="collapse-content">
+                    <p class="text-gray-600 mb-4">2021.10-2022.03</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>学习吉他基础指法，参与社团小型演出，完成 3 首曲目的完整演奏，锻炼抗压能力与公众表达能力。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能与证书 -->
+        <section id="skills-certificates" class="p-12 bg-gray-50">
+            <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-4 mb-6 animate-slideInLeft">技能与证书</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <span>前端：HTML5/CSS3、JavaScript、Vue.js（基础）、Git</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span>数据：Python、Pandas、Matplotlib、SQL（入门）</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span>资格证书：大学英语四级</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 自我评价 -->
+        <section id="self-evaluation" class="p-12">
+            <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-4 mb-6 animate-slideInLeft">自我评价</h2>
+            <p class="text-gray-600">我是即将毕业于常州工学院的周家成，专长于爬虫与数据分析，也具备前端开发能力。
+                在爬虫领域，我熟练掌Python，能灵活运用ScrapyBeautifulSoup等框架和库，
+                高效搭建爬虫系统，从网页中精准提取数据。熟悉处理反爬机制，数据分析方面，
+                我凭借扎实的Python基础，运用Pandas、Numpy完成复杂的数据清洗与预处理，
+                利用Matplotlib、Seaborn进行可视化分析，挖掘数据背后的趋势和规律，
+                为决策提供有力支持。我还熟悉机器学习算法，能够使用statesmodels构建简单预测模型。
+                在前端开发上，我了解HTML、CSS、JavaScript基础语法，能搭建简单静态页面，
+                实现基本交互效果，也接触过Vue.js，具备一定的前端项目实践经验。</p>
+        </section>
+    </div>
+
+    <!-- 摇摆的花朵 -->
+    <svg class="flower" viewBox="0 0 100 100">
+        <circle cx="50" cy="20" r="10" fill="yellow" />
+        <rect x="48" y="20" width="4" height="80" fill="green" />
+    </svg>
+
+    <!-- 流动的风 -->
+    <svg class="wind" viewBox="0 0 100 100">
+        <path d="M0,50 Q25,25 50,50 Q75,75 100,50" stroke="blue" stroke-width="2" fill="none" />
+    </svg>
+
+    <script>
+        document.querySelectorAll('.collapse-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                this.classList.toggle('show');
+                const content = this.nextElementSibling;
+                content.classList.toggle('show');
+            });
+        });
+
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>    
